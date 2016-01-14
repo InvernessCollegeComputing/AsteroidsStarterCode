@@ -41,7 +41,8 @@ void draw() {
 
   
   chanceToCreateNormalAsteroid();    // This function is defined on line 70. It checks to see if a new Asteroid should be created this frame. 
-  chanceToCreateFieryAsteroid();     // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
+  chanceToCreateFieryAsteroid();  // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
+  chanceToCreateIcyAsteroid();
 
   for (int index = 0; index < arrayListOfAsteroids.size(); index ++) {              // loop through our array list
 
@@ -119,6 +120,34 @@ void chanceToCreateFieryAsteroid(){
     else {                   // a roll of 75 and up represents the right of the screen
     
       arrayListOfAsteroids.add(new FieryAsteroid(width, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
+    }
+  }
+  
+}
+
+void chanceToCreateIcyAsteroid(){
+  
+  float chanceOfAsteroid = random(0, 100);    
+
+  if (chanceOfAsteroid <= 15) {        
+
+    float edge = random(0, 100);    
+
+    if (edge < 25) {          
+      
+      arrayListOfAsteroids.add(new FieryAsteroid(random(width), 0, random(-5, 5), random(5, 10), random(50, 150), random(200, 250)));
+    }
+    else if (edge < 50) {   
+    
+      arrayListOfAsteroids.add(new FieryAsteroid(random(width), height, random(-5, 5), random(-5, -10), random(50, 150), random(200, 250)));
+    }
+    else if (edge < 75) {    
+    
+      arrayListOfAsteroids.add(new FieryAsteroid(0, random(height), random(5, 10), random(-5, 5), random(50, 150), random(200, 250)));
+    }
+    else {                 
+    
+      arrayListOfAsteroids.add(new FieryAsteroid(width, random(height), random(5, 10), random(-5, 5), random(50, 150), random(200, 250)));
     }
   }
   
