@@ -16,7 +16,7 @@ class Asteroid {
   float asteroidDiameter;
   float asteroidRadius;
 
-  float lifespan;
+
 
   Asteroid (float initialPositionX, float initialPositionY, float initialSpeedX, float initialSpeedY, float initialAsteroidDiameter, float colorOfAsteroid) 
   {
@@ -27,8 +27,6 @@ class Asteroid {
     asteroidColor = colorOfAsteroid;
     asteroidDiameter = initialAsteroidDiameter;
     asteroidRadius = initialAsteroidDiameter/2;
-
-    lifespan = 255;
   }
 
   void displayAsteroid () {
@@ -44,8 +42,6 @@ class Asteroid {
     // Add the current speed to the x and y locations.
     positionOnAxisX = positionOnAxisX + speedInX;
     positionOnAxisY = positionOnAxisY + speedInY;
-
-    lifespan -= 2.0;
   }
 
   boolean checkBoundaryConditions () {
