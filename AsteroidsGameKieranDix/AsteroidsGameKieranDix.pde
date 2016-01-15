@@ -41,7 +41,7 @@ void draw() {
 
   
   chanceToCreateNormalAsteroid();    // This function is defined on line 70. It checks to see if a new Asteroid should be created this frame. 
-  chanceToCreateFieryAsteroid();     // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
+  chanceToCreateColourAsteroid();     // This function is defined on line 99. It checks to see if a new Colour Asteroid should be created this frame.
 
   for (int index = 0; index < arrayListOfAsteroids.size(); index ++) {              // loop through our array list
 
@@ -96,7 +96,7 @@ void chanceToCreateNormalAsteroid(){
 }
 
 
-void chanceToCreateFieryAsteroid(){
+void chanceToCreateColourAsteroid(){
   
   float chanceOfAsteroid = random(0, 100);    // dice roll to see if a new asteroid is created
 
@@ -106,19 +106,19 @@ void chanceToCreateFieryAsteroid(){
 
     if (edge < 25) {          // a roll of 0-24 represents the top of the screen  
       
-      arrayListOfAsteroids.add(new FieryAsteroid(random(width), 0, random(-2, 2), random(2, 6), random(25, 60), random(20, 50)));
+      arrayListOfAsteroids.add(new ColourAsteroid(random(width), 0, random(-2, 2), random(2, 6), random(25, 60), random(20, 50)));
     }
     else if (edge < 50) {    // a roll of 25-49 represents the bottom of the screen
     
-      arrayListOfAsteroids.add(new FieryAsteroid(random(width), height, random(-2, 2), random(-2, -6), random(25, 60), random(20, 50)));
+      arrayListOfAsteroids.add(new ColourAsteroid(random(width), height, random(-2, 2), random(-2, -6), random(25, 60), random(20, 50)));
     }
     else if (edge < 75) {    // a roll of 50-74 represents the left of the screen
     
-      arrayListOfAsteroids.add(new FieryAsteroid(0, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
+      arrayListOfAsteroids.add(new ColourAsteroid(0, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
     }
     else {                   // a roll of 75 and up represents the right of the screen
     
-      arrayListOfAsteroids.add(new FieryAsteroid(width, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
+      arrayListOfAsteroids.add(new ColourAsteroid(width, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
     }
   }
   
