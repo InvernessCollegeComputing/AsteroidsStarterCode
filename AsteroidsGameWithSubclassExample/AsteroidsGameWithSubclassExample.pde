@@ -35,14 +35,34 @@ void setup() {
 //-----------------------------------------------------------------------------
 
 
+
 void draw() {
 
   background(255);    // refresh the background
 
   
   chanceToCreateNormalAsteroid();    // This function is defined on line 70. It checks to see if a new Asteroid should be created this frame. 
-  chanceToCreateFieryAsteroid();     // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
-  chanceToCreateLukesAsteroid();   
+//  chanceToCreateFieryAsteroid();     // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
+//  chanceToCreateLukesAsteroid();   
+  
+  
+  for (int index = 0; index < arrayListOfAsteroids.size(); index ++) {  
+    
+    Asteroid referenceToAsteroid = (Asteroid) arrayListOfAsteroids.get(index);
+  
+  if ((mousePressed == true) && (referenceToAsteroid.isMouseOverAsteroid()))  {
+    
+    println("pressing the mouse works");
+    arrayListOfAsteroids.remove(index);  
+  
+  } else {
+    
+    println(" ");
+    
+  }
+  
+  }
+  
 
   for (int index = 0; index < arrayListOfAsteroids.size(); index ++) {              // loop through our array list
 
@@ -63,7 +83,7 @@ void draw() {
   text(arrayListOfAsteroids.size(), 100, (height-100));      // this displays the size of our ArrayList (so it shows us how many Asteroids
   fill(random(0,255),random(0,255),random(0,255));
   textSize(80);
-  text("CUCUMBERS ATTACK!!!", 60, 260);                                                           // are in memory at any one time
+//  text("CUCUMBERS ATTACK!!!", 60, 260);                                                           // are in memory at any one time
 }
 
 

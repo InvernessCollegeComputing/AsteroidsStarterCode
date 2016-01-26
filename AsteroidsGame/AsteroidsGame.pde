@@ -66,6 +66,14 @@ void draw() {
 
 //-----------------------------------------------------------------------------
 
+void deleteasteroid(){
+  
+ 
+  if(  (mousePressed == true)  &&
+  
+  
+}
+
 
 void chanceToCreateAsteroid(){
   
