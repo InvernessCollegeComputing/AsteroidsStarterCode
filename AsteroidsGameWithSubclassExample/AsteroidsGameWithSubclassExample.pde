@@ -35,13 +35,34 @@ void setup() {
 //-----------------------------------------------------------------------------
 
 
+
 void draw() {
 
   background(255);    // refresh the background
 
   
   chanceToCreateNormalAsteroid();    // This function is defined on line 70. It checks to see if a new Asteroid should be created this frame. 
-  chanceToCreateFieryAsteroid();     // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
+//  chanceToCreateFieryAsteroid();     // This function is defined on line 99. It checks to see if a new FIERY Asteroid should be created this frame.
+//  chanceToCreateLukesAsteroid();   
+  
+  
+  for (int index = 0; index < arrayListOfAsteroids.size(); index ++) {  
+    
+    Asteroid referenceToAsteroid = (Asteroid) arrayListOfAsteroids.get(index);
+  
+  if ((mousePressed == true) && (referenceToAsteroid.isMouseOverAsteroid()))  {
+    
+    println("pressing the mouse works");
+    arrayListOfAsteroids.remove(index);  
+  
+  } else {
+    
+    println(" ");
+    
+  }
+  
+  }
+  
 
   for (int index = 0; index < arrayListOfAsteroids.size(); index ++) {              // loop through our array list
 
@@ -60,7 +81,9 @@ void draw() {
   fill(0, 200, 0);
   textSize(48);
   text(arrayListOfAsteroids.size(), 100, (height-100));      // this displays the size of our ArrayList (so it shows us how many Asteroids
-                                                             // are in memory at any one time
+  fill(random(0,255),random(0,255),random(0,255));
+  textSize(80);
+//  text("CUCUMBERS ATTACK!!!", 60, 260);                                                           // are in memory at any one time
 }
 
 
@@ -119,6 +142,34 @@ void chanceToCreateFieryAsteroid(){
     else {                   // a roll of 75 and up represents the right of the screen
     
       arrayListOfAsteroids.add(new FieryAsteroid(width, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
+    }
+  }
+  
+}
+
+void chanceToCreateLukesAsteroid(){
+  
+  float chanceOfAsteroid = random(0, 100);    // dice roll to see if a new asteroid is created
+
+  if (chanceOfAsteroid <= 10) {        // if it is (currently a 5% chance)
+
+    float edge = random(0, 100);      // dice roll to see what edge to draw the asteroid at
+
+    if (edge < 25) {          // a roll of 0-24 represents the top of the screen  
+      
+      arrayListOfAsteroids.add(new LukesAsteroid(random(width), 0, random(-2, 2), random(2, 6), random(25, 60), random(20, 50)));
+    }
+    else if (edge < 50) {    // a roll of 25-49 represents the bottom of the screen
+    
+      arrayListOfAsteroids.add(new LukesAsteroid(random(width), height, random(-2, 2), random(-2, -6), random(25, 60), random(20, 50)));
+    }
+    else if (edge < 75) {    // a roll of 50-74 represents the left of the screen
+    
+      arrayListOfAsteroids.add(new LukesAsteroid(0, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
+    }
+    else {                   // a roll of 75 and up represents the right of the screen
+    
+      arrayListOfAsteroids.add(new LukesAsteroid(width, random(height), random(2, 6), random(-2, 2), random(25, 60), random(20, 50)));
     }
   }
   

@@ -52,11 +52,24 @@ class Asteroid {
      || ((positionOnAxisY + asteroidRadius) < 0)) 
      {
       return true;
-     }
-    else {
+     } else {
       return false;
     }
     
   }
+  
+  boolean isMouseOverAsteroid () {
+    
+      // if the mouse position is more than the x and y coordinates of the asteroid but is within the parameters of the asteroid on screen
+    if (((mouseX > positionOnAxisX - asteroidRadius) && (mouseX < positionOnAxisX + asteroidRadius) &&
+         (mouseY > positionOnAxisY - asteroidRadius) && (mouseY < positionOnAxisY + asteroidRadius)))
+      {
+        return true;
+      } else {
+        return false;
+      }
+     }
+  
+  
   
 } // end of class
